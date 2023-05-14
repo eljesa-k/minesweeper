@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #edece8; -fx-border-width: 5px; -fx-border-color: black; -fx-border-radius: 2px; -fx-background-radius: 2px;" >
+    <children >
+        <Button id="newGame" layoutX="110.0" layoutY="289.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <effect>
+                <Glow level="0.0" />
+            </effect>
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="16.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Text fontSmoothingType="LCD" layoutX="197.0" layoutY="55.0" strokeLineCap="BUTT" strokeWidth="0.0" text="Top Score Results" underline="true" wrappingWidth="227.55020904541016">
+            <font>
+                <Font name="Book Antiqua" size="27.0" />
+            </font>
+            <stroke>
+                <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5263158082962036" green="0.4324886202812195" blue="0.2300194948911667" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </stroke>
+        </Text>
+        <Pane layoutX="112.0" layoutY="96.0" prefHeight="175.0" prefWidth="411.0" style="-fx-background-color: #D1E9F9; -fx-border-color: #000000; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+            <children>
+                <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="21.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@/bomb.png" />
+                    </image>
+                </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="354.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/bomb.png" />
+               </image>
+            </ImageView>
+                <Text id="rank" layoutX="128.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#rank: " wrappingWidth="48.999999999999886">
+                    <font>
+                        <Font name="Book Antiqua" size="16.0" />
+                    </font>
+                </Text>
+            <Text id="gameWon" layoutX="72.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1." wrappingWidth="16.999999999999886">
+               <font>
+                  <Font name="Book Antiqua" size="16.0" />
+               </font>
+            </Text>
+            <Text id="gameWon" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2." wrappingWidth="16.999999999999886">
+               <font>
+                  <Font name="Book Antiqua" size="16.0" />
+               </font>
+            </Text>
+            <Text id="gameWon" layoutX="72.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3." wrappingWidth="16.999999999999886">
+               <font>
+                  <Font name="Book Antiqua" size="16.0" />
+               </font>
+            </Text>
+            <Text id="currentScore" layoutX="261.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" underline="true" wrappingWidth="16.999999999999886">
+               <font>
+                  <Font name="Book Antiqua" size="16.0" />
+               </font>
+            </Text>
+            <TextField id="playerName-1" alignment="CENTER" layoutX="92.0" layoutY="14.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="Rona">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField id="playerName-2" alignment="CENTER" layoutX="92.0" layoutY="47.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="Eljesa">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField id="playerName-3" alignment="CENTER" layoutX="92.0" layoutY="82.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="Rinesa">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField id="top-score-1" alignment="CENTER" layoutX="211.0" layoutY="14.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="100">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField id="top-score-2" alignment="CENTER" layoutX="211.0" layoutY="47.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="90">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField id="top-score-3" alignment="CENTER" layoutX="211.0" layoutY="82.0" prefHeight="0.0" prefWidth="100.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="80">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+            </TextField>
+            <Line endX="294.20001220703125" endY="8.600006103515625" layoutX="110.0" layoutY="117.0" startX="-102.80000305175781" startY="8.600006103515625" />
+            </children>
+        </Pane>
+        <Button id="yourResult" layoutX="261.0" layoutY="289.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Your Results" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <effect>
+                <Glow level="0.0" />
+            </effect>
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="16.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Button id="quitGame" layoutX="410.0" layoutY="289.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Quit Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <effect>
+                <Glow level="0.0" />
+            </effect>
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="16.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+    </children>
+</Pane>
