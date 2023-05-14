@@ -23,7 +23,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10" />
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/bomb.png" />
+                        <Image url="@../img/bomb.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="7.0" />

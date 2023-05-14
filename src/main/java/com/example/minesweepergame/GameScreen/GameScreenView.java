@@ -2,7 +2,7 @@ package com.example.minesweepergame.GameScreen;
 
 import com.example.minesweepergame.Main;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 
@@ -44,14 +44,11 @@ public class GameScreenView {
         }
         Board board = new Board(rows, cols);
         boardView.getChildren().add(board);
-        this.width = cols * 21.5 -1;
-        this.height = rows * 21.5 -1;
+        this.width = cols * 28.5 -1;
+        this.height = rows * 28.5 -1;
     }
 
     public Pane getBoardView() {
         return this.boardView;
     }
-//    public double getWidth(){
-//        return boardView.getWidth();
-//    }
 }
