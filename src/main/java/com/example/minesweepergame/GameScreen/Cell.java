@@ -1,13 +1,12 @@
 package com.example.minesweepergame.GameScreen;
 
-import com.example.minesweepergame.Main;
+import com.example.minesweepergame.MainController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
 
 public class Cell extends Button implements  EventHandler<MouseEvent>{
     //private static final String HOVERED_BUTTON_STYLE = "-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );";
@@ -54,6 +53,6 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
     }
 
     private void setBackgroundImage(String img){
-        this.setGraphic(new ImageView(new Image(Main.class.getResource("img/"+img+".png").toString(), 25, 25, false, false)));
+        this.setGraphic(new ImageView(new Image(MainController.class.getResource("img/"+img+".png").toString(), 25, 25, false, false)));
     }
 }

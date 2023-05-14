@@ -1,6 +1,6 @@
 package com.example.minesweepergame.GameScreen;
 
-import com.example.minesweepergame.Main;
+import com.example.minesweepergame.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.*;
 
@@ -13,7 +13,7 @@ public class GameScreenView {
 
     public GameScreenView(Difficulties diff) throws IOException {
         FXMLLoader fxmlLoader =
-                new FXMLLoader(Main.class.getResource("game-screen/game-screen.fxml"));
+                new FXMLLoader(MainController.class.getResource("game-screen/game-screen.fxml"));
         fxmlLoader.load();
 
         boardView = fxmlLoader.getRoot();

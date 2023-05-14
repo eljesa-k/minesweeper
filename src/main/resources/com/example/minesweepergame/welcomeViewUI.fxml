@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" style="-fx-border-color: black; -fx-border-radius: 2; -fx-background-radius: 2; -fx-border-width: 5px; -fx-background-color: #edece8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.minesweepergame.WelcomeViewController">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" style="-fx-border-color: black; -fx-border-radius: 2; -fx-background-radius: 2; -fx-border-width: 5px; -fx-background-color: #edece8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.minesweepergame.WelcomeView">
    <children>
       <ImageView fitHeight="187.0" fitWidth="332.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
          <image>
