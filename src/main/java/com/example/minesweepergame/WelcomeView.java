@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 
 public class WelcomeView {
 
+    private MainController controller;
     @FXML
     private TextField typeNameField;
     @FXML
@@ -44,40 +45,7 @@ public class WelcomeView {
         return this.welcomeView;
     }
 
-//    public WelcomeViewController() throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(WelcomeViewController.class.getResource("welcomeViewUI.fxml"));
-//        System.out.println(fxmlLoader);
-//        try{
-//        fxmlLoader.load();}
-//        catch (Exception e){
-//            e.getMessage();
-//        }
-//        this.welcomeView=fxmlLoader.getRoot();
-//        //Scene scene = new Scene(fxmlLoader.load(), 610, 450);
-//        //scene.getStylesheets().add(getClass().getResource("newStyle.css").toExternalForm());
-//        //stage.setTitle("Minesweeper");
-//        //stage.setScene(scene);
-//        //stage.show();
-//
-//        DropShadow shadow = new DropShadow();
-//        easyButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) ->{
-//            easyButton.setEffect(shadow);
-//        });
-//        mediumButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) ->{
-//            mediumButton.setEffect(shadow);
-//        });
-//        hardButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) ->{
-//            hardButton.setEffect(shadow);
-//        });
-
-//        button.setOnAction(e -> {
-//            String name = textField1.getText();
-//        });
-//    }
-
-
-//    public static void main(String[] args) {
-//        launch();
-//    }
-
+    public void setController(MainController controller) {
+        this.controller = controller;
+    }
 }

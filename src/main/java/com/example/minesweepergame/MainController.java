@@ -8,7 +8,7 @@ import java.io.IOException;
 public class MainController extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        WelcomeViewController welcome = new WelcomeViewController();
+        WelcomeViewController welcome = new WelcomeViewController(this);
         stage.setScene(new Scene(welcome.getWelcomeView()));
         stage.setTitle("Minesweeper");
         stage.show();
@@ -16,5 +16,9 @@ public class MainController extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void ok(){
+        System.out.println("ok from main controller");
     }
 }
