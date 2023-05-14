@@ -3,11 +3,14 @@
 package com.example.minesweepergame;
 
 
+import com.example.minesweepergame.GameScreen.Difficulties;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 
 public class WelcomeView {
 
@@ -25,20 +28,23 @@ public class WelcomeView {
 
     String name;
 
-    public void startGameEasyAction(ActionEvent event){
+    public void startGameEasyAction(ActionEvent event) {
         name = typeNameField.getText();
         System.out.println(name);
         System.out.println("easy");
+        controller.startGame(name, Difficulties.EASY);
     }
     public void startGameMediumAction(ActionEvent event){
         name = typeNameField.getText();
         System.out.println(name);
         System.out.println("medium");
+        controller.startGame(name, Difficulties.MEDIUM);
     }
     public void startGameHardAction(ActionEvent event){
         name = typeNameField.getText();
         System.out.println(name);
         System.out.println("hard");
+        controller.startGame(name, Difficulties.HARD);
     }
 
     public Pane getWelcomeView(){

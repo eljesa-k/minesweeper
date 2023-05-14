@@ -6,15 +6,19 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 
-public class GameScreenView {
+public class GameViewController {
     private Pane boardView;
     public double width;
     public double height;
 
-    public GameScreenView(Difficulties diff) throws IOException {
+    public GameViewController(Difficulties diff){
         FXMLLoader fxmlLoader =
                 new FXMLLoader(MainController.class.getResource("game-screen/game-screen.fxml"));
-        fxmlLoader.load();
+        try{
+            fxmlLoader.load();}
+        catch (Exception e){
+            e.getMessage();
+        }
 
         boardView = fxmlLoader.getRoot();
 
