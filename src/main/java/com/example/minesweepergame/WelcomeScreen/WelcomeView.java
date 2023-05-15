@@ -1,9 +1,10 @@
 //  I RONES
 
-package com.example.minesweepergame;
+package com.example.minesweepergame.WelcomeScreen;
 
 
 import com.example.minesweepergame.GameScreen.Difficulties;
+import com.example.minesweepergame.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

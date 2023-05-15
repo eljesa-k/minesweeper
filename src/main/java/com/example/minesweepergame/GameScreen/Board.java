@@ -36,6 +36,7 @@ public class Board extends GridPane {
             }
         }
         this.controller = controller;
+        this.controller.setNumBombs(difficultyDetails.get("nr_bombs"));
     }
     protected void endGame(){
         for (int i = 0; i < cellArray.length; i++) {

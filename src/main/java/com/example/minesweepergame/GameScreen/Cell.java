@@ -54,6 +54,7 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
         }
         else if(mouseEvent.getButton() == MouseButton.SECONDARY) {
             this.state = CellState.FLAGGED;
+            board.addFlagged();
             this.setStyle("-fx-background-color: #fed684;");
             this.setBackgroundImage("flag");
         }

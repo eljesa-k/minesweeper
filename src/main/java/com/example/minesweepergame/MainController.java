@@ -3,6 +3,7 @@ package com.example.minesweepergame;
 import com.example.minesweepergame.GameScreen.Difficulties;
 import com.example.minesweepergame.GameScreen.GameViewController;
 import com.example.minesweepergame.ResultView.ResultViewController;
+import com.example.minesweepergame.WelcomeScreen.WelcomeViewController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
