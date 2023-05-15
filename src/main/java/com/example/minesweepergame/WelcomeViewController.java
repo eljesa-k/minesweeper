@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class WelcomeViewController {
     private Pane welcomeView;
-    public WelcomeViewController(MainController controller) throws IOException {
+    public WelcomeViewController(MainController controller){
 
         FXMLLoader fxmlLoader = new FXMLLoader(WelcomeView.class.getResource("welcomeViewUI.fxml"));
         try{

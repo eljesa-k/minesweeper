@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.Button?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #edece8; -fx-border-width: 5px; -fx-border-color: black; -fx-border-radius: 2px; -fx-background-radius: 2px;">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #edece8; -fx-border-width: 5px; -fx-border-color: black; -fx-border-radius: 2px; -fx-background-radius: 2px;"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.minesweepergame.ResultView.ResultView">
    <children>
       <Button id="newGame" layoutX="110.0" layoutY="289.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
          <padding>
@@ -51,7 +52,7 @@
       </Text>
       <Pane layoutX="112.0" layoutY="89.0" prefHeight="175.0" prefWidth="398.0" style="-fx-background-color: #D1E9F9; -fx-border-color: #000000; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
          <children>
-            <TextField id="playerName" alignment="CENTER" layoutX="52.0" layoutY="88.0" prefHeight="30.0" prefWidth="107.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="Rinesa">
+            <TextField fx:id="playerName" alignment="CENTER" layoutX="52.0" layoutY="88.0" prefHeight="30.0" prefWidth="107.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px;" text="Rinesa">
                <font>
                   <Font name="Book Antiqua Bold" size="16.0" />
                </font>
@@ -99,5 +100,3 @@
       </Button>
    </children>
 </Pane>
-
-
