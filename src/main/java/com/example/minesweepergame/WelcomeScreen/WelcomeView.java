@@ -1,9 +1,10 @@
 //  I RONES
 
-package com.example.minesweepergame;
+package com.example.minesweepergame.WelcomeScreen;
 
 
 import com.example.minesweepergame.GameScreen.Difficulties;
+import com.example.minesweepergame.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,21 +31,18 @@ public class WelcomeView {
 
     public void startGameEasyAction(ActionEvent event) {
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("easy");
-        controller.startGame(name, Difficulties.EASY);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.EASY);
     }
     public void startGameMediumAction(ActionEvent event){
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("medium");
-        controller.startGame(name, Difficulties.MEDIUM);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.MEDIUM);
     }
     public void startGameHardAction(ActionEvent event){
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("hard");
-        controller.startGame(name, Difficulties.HARD);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.HARD);
     }
 
     public Pane getWelcomeView(){

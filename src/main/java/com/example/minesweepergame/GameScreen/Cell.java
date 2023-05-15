@@ -11,15 +11,21 @@ import javafx.scene.input.MouseEvent;
 public class Cell extends Button implements  EventHandler<MouseEvent>{
     //private static final String HOVERED_BUTTON_STYLE = "-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );";
     private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #4fbcff; -fx-border-radius: 5px; -fx-pref-width: 25; -fx-pref-height: 20;";
-    private boolean isBomb = true;
-    private int neighborBombs = 3;
-    private boolean isOpen;
-    private boolean isFlagged;
+    private boolean isBomb;
+    private int neighborBombs;
     private Board board;
-    public Cell(Board board){
+    private int x;
+    private int y;
+
+    private CellState state;
+    public Cell(Board board, boolean isBomb, int neighborBombs, int x, int y){
+        this.state=CellState.CLOSED;
         this.board = board;
+        this.isBomb = isBomb;
+        this.neighborBombs = neighborBombs;
+        this.x = x;
+        this.y = y;
         this.setStyle(IDLE_BUTTON_STYLE);
-        //this.getStyleClass().add(".cell");
         this.addEventHandler(MouseEvent.MOUSE_CLICKED, this);
         this.setMinWidth(27);
         this.setMaxWidth(27);
@@ -29,11 +35,11 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(isOpen || isFlagged)
+        if(this.state != CellState.CLOSED)
             return;
-        if(mouseEvent.getButton() == MouseButton.PRIMARY && !isFlagged){
-            isOpen = true;
-            System.out.println("open");
+
+        if(mouseEvent.getButton() == MouseButton.PRIMARY){
+            this.state=CellState.OPENED;
             if(isBomb){
                 this.setStyle("-fx-background-color: #FF2519FF;");
                 this.setBackgroundImage("bomb");
@@ -41,17 +47,32 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
             }else{
                 this.setStyle("-fx-background-color: #eef0f2;");
                 this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+                board.addOpenedCell();
+                if(this.neighborBombs == 0)
+                    this.board.openNeighbors(this.x, this.y);
             }
         }
-        else if(mouseEvent.getButton() == MouseButton.SECONDARY){
-//            if(!isFlagged){
-                isFlagged = true;
-                this.setStyle("-fx-background-color: #fed684;");
-                this.setBackgroundImage("flag");
-//            }else{
-//                this.isFlagged = false;
-//                this.setStyle(IDLE_BUTTON_STYLE);
-//            }
+        else if(mouseEvent.getButton() == MouseButton.SECONDARY) {
+            this.state = CellState.FLAGGED;
+            board.addFlagged();
+            this.setStyle("-fx-background-color: #fed684;");
+            this.setBackgroundImage("flag");
+        }
+    }
+
+    protected void open(){
+        if(this.state != CellState.CLOSED)
+            return;
+        this.state = CellState.OPENED;
+        if (this.isBomb){
+            this.setStyle("-fx-background-color: #FF2519FF;");
+            this.setBackgroundImage("bomb");
+        }else{
+            this.setStyle("-fx-background-color: #eef0f2;");
+            this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+            board.addOpenedCell();
+            if(this.neighborBombs == 0)
+                this.board.openNeighbors(this.x, this.y);
         }
     }
 
