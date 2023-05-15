@@ -16,7 +16,10 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
     private boolean isOpen;
     private boolean isFlagged;
     private Board board;
+
+    private CellState state;
     public Cell(Board board, boolean isBomb, int neighborBombs){
+        this.state=CellState.CLOSED;
         this.board = board;
         this.isBomb = isBomb;
         this. neighborBombs = neighborBombs;
@@ -31,28 +34,41 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(isOpen || isFlagged)
-            return;
-        if(mouseEvent.getButton() == MouseButton.PRIMARY && !isFlagged){
-            isOpen = true;
-            if(isBomb){
-                this.setStyle("-fx-background-color: #FF2519FF;");
-                this.setBackgroundImage("bomb");
-                //board.endGame();
-            }else{
-                this.setStyle("-fx-background-color: #eef0f2;");
-                this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+        if(this.state == CellState.CLOSED){
+            System.out.println(state);
+//            return;
+//        }
+            if(mouseEvent.getButton() == MouseButton.PRIMARY && !isFlagged && this.state==CellState.CLOSED){
+                this.state=CellState.OPENED;
+                if(isBomb){
+                    this.setStyle("-fx-background-color: #FF2519FF;");
+                    this.setBackgroundImage("bomb");
+                    board.endGame();
+                }else{
+                    this.setStyle("-fx-background-color: #eef0f2;");
+                    this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+                }
             }
-        }
-        else if(mouseEvent.getButton() == MouseButton.SECONDARY){
-//            if(!isFlagged){
-                isFlagged = true;
+            else if(mouseEvent.getButton() == MouseButton.SECONDARY) {
+                //            if(!isFlagged){
+                this.state = CellState.FLAGGED;
                 this.setStyle("-fx-background-color: #fed684;");
                 this.setBackgroundImage("flag");
-//            }else{
-//                this.isFlagged = false;
-//                this.setStyle(IDLE_BUTTON_STYLE);
-//            }
+                //            }else{
+                //                this.isFlagged = false;
+                //                this.setStyle(IDLE_BUTTON_STYLE);
+                //            }
+            }
+        }
+    }
+
+    public void open(){
+        this.state = CellState.OPENED;
+        if (isBomb&& this.state!=CellState.FLAGGED){
+            this.setStyle("-fx-background-color: #FF2519FF;");
+            this.setBackgroundImage("bomb");
+//            System.out.println(state);
+            //System.out.println("open done");
         }
     }
 

@@ -10,6 +10,7 @@ public class BombCreator {
     private static boolean[][] board;
     public static int[][] surroundingMines;
     public BombCreator(Difficulties difficulties){
+
         int placedMines = 0;
 
         Map<String, Integer> difficultyDetails = Difficulty.getDiff(difficulties);
@@ -27,42 +28,6 @@ public class BombCreator {
                 placedMines++;
             }
         }
-//        if(difficulties == Difficulties.EASY){
-//            this.board = new boolean[8][10];
-//            this.surroundingMines = new int[8][10];
-//            while (placedMines < 10) {
-//                int i = random.nextInt(8);
-//                int j = random.nextInt(10);
-//                if (!board[i][j]) {
-//                    board[i][j] = true;
-//                    placedMines++;
-//                }
-//            }
-//        }
-//        else if(difficulties == Difficulties.MEDIUM){
-//            this.board = new boolean[14][18];
-//            this.surroundingMines = new int[14][18];
-//            while (placedMines < 15) {
-//                int i = random.nextInt(14);
-//                int j = random.nextInt(18);
-//                if (!board[i][j]) {
-//                    board[i][j] = true;
-//                    placedMines++;
-//                }
-//            }
-//        }
-//        else {
-//            this.board = new boolean[20][24];
-//            this.surroundingMines = new int[20][24];
-//            while (placedMines < 25) {
-//                int i = random.nextInt(20);
-//                int j = random.nextInt(24);
-//                if (!board[i][j]) {
-//                    board[i][j] = true;
-//                    placedMines++;
-//                }
-//            }
-//        }
     }
 
     public boolean[][] getBoard() {

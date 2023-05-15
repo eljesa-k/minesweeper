@@ -21,7 +21,7 @@ public class MainController extends Application {
         stage.setTitle("Minesweeper");
         stage.show();
         this.stage = stage;
-       // this.endGame(200, true);
+       //this.endGame(200, true);
     }
 
     public static void main(String[] args) {
