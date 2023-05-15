@@ -32,17 +32,23 @@ public class MainController extends Application {
     public void newGame(){
         WelcomeViewController welcome = new WelcomeViewController(this);
         stage.setScene(new Scene(welcome.getWelcomeView()));
+        stage.setWidth(750);
+        stage.setHeight(750);
     }
     public void startGame(String name, Difficulties difficulty){
         GameViewController game = new GameViewController(difficulty, this);
         this.name=name;
         stage.setScene(new Scene(game.getBoardView(), game.width < 440 ? 640 : game.width + 200 , game.height < 350 ? 500 : game.height + 150));
+        stage.setWidth(750);
+        stage.setHeight(750);
         stage.setResizable(false);
     }
 
     public void endGame(String time, boolean isWin){
         ResultViewController result = new ResultViewController(this, name, time, isWin);
-        stage.setResizable(true);
+        stage.setResizable(false);
+        stage.setWidth(750);
+        stage.setHeight(750);
         stage.setScene(new Scene(result.getResultView()));
     }
 
