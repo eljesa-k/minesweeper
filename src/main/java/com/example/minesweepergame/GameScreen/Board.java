@@ -78,8 +78,8 @@ public class Board extends GridPane {
             controller.endGame(true);
         }
     }
-    protected void addFlagged(){
-        this.unFlagged --;
+    protected void addFlagged(int i){
+        this.unFlagged += i;
         controller.setNumBombs(this.unFlagged);
     }
 }

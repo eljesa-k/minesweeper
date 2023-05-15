@@ -35,10 +35,10 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(this.state != CellState.CLOSED)
+        if(this.state == CellState.OPENED)
             return;
 
-        if(mouseEvent.getButton() == MouseButton.PRIMARY){
+        if(mouseEvent.getButton() == MouseButton.PRIMARY && this.state != CellState.FLAGGED){
             this.state=CellState.OPENED;
             if(isBomb){
                 this.setStyle("-fx-background-color: #FF2519FF;");
@@ -53,10 +53,18 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
             }
         }
         else if(mouseEvent.getButton() == MouseButton.SECONDARY) {
-            this.state = CellState.FLAGGED;
-            board.addFlagged();
-            this.setStyle("-fx-background-color: #fed684;");
-            this.setBackgroundImage("flag");
+            if(this.state == CellState.FLAGGED){
+                this.state = CellState.CLOSED;
+                board.addFlagged(1);
+                this.setStyle("-fx-background-color: #4fbcff;");
+                this.setGraphic(null);
+            }else{
+                this.state = CellState.FLAGGED;
+                board.addFlagged(-1);
+                this.setStyle("-fx-background-color: #fed684;");
+                this.setBackgroundImage("flag");
+            }
+
         }
     }
 
