@@ -25,7 +25,7 @@ public class Board extends GridPane {
         cellArray = new Cell[rows][columns];
         for(int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
-                Cell cell = new Cell(this, bombCreator.checkCell(i,j), bombCreator.checkNeighbors(i, j));
+                Cell cell = new Cell(this, bombCreator.checkCell(i,j), bombCreator.checkNeighbors(i, j), i, j);
                 this.add(cell, j , i);
                 this.cellArray[i][j]=cell;
             }
@@ -39,10 +39,15 @@ public class Board extends GridPane {
                 cellArray[i][j].open();
             }
         }
-        try{
-            Thread.sleep(0000);
-            controller.endGame();
+        controller.endGame();
+    }
+    protected void openNeighbors(int x, int y){
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if(i >= 0 && j >= 0 && i < cellArray.length && j < cellArray[0].length && (x == i ^ y == j))
+                    this.cellArray[i][j].open();
+            };
         }
-        catch (InterruptedException e){}
+
     }
 }
