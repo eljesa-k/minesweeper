@@ -47,6 +47,7 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
             }else{
                 this.setStyle("-fx-background-color: #eef0f2;");
                 this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+                board.addOpenedCell();
                 if(this.neighborBombs == 0)
                     this.board.openNeighbors(this.x, this.y);
             }
@@ -68,6 +69,7 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
         }else{
             this.setStyle("-fx-background-color: #eef0f2;");
             this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");
+            board.addOpenedCell();
             if(this.neighborBombs == 0)
                 this.board.openNeighbors(this.x, this.y);
         }

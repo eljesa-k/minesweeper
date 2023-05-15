@@ -33,13 +33,11 @@ public class GameViewController {
     public Pane getBoardView() {
         return this.boardView;
     }
-    protected void endGame(){
+    protected void endGame(boolean isWin){
         // todo: njeheso piket
-        try{
-            Thread.sleep(3000);
-            //controller.endGame();
-        }
-        catch (InterruptedException e){}
-        //controller.endGame(200, true);
+        controller.endGame(200, isWin);
+    }
+    protected void setNumBombs(int leftBombs){
+        // todo update the number of bombs in ui
     }
 }

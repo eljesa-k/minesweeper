@@ -14,6 +14,8 @@ public class Board extends GridPane {
     private BombCreator bombCreator;
 
     private Cell[][] cellArray;
+    private int cellsToOpen;
+    private int unFlagged;
 
     public Board(GameViewController controller, Difficulties diff){
         this.setHgap(1.5);
@@ -21,8 +23,11 @@ public class Board extends GridPane {
         Map<String, Integer> difficultyDetails = Difficulty.getDiff(diff);
         this.rows = difficultyDetails.get("rows");
         this.columns = difficultyDetails.get("columns");
+        this.cellsToOpen = rows * columns - difficultyDetails.get("nr_bombs");
+        this.unFlagged = difficultyDetails.get("nr_bombs");
         this.bombCreator = new BombCreator(diff);
         cellArray = new Cell[rows][columns];
+
         for(int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
                 Cell cell = new Cell(this, bombCreator.checkCell(i,j), bombCreator.checkNeighbors(i, j), i, j);
@@ -31,7 +36,6 @@ public class Board extends GridPane {
             }
         }
         this.controller = controller;
-        System.out.println(cellArray);
     }
     protected void endGame(){
         for (int i = 0; i < cellArray.length; i++) {
@@ -39,7 +43,7 @@ public class Board extends GridPane {
                 cellArray[i][j].open();
             }
         }
-        controller.endGame();
+        controller.endGame(false);
     }
     protected void openNeighbors(int x, int y){
         for (int i = x - 1; i <= x + 1; i++) {
@@ -49,5 +53,16 @@ public class Board extends GridPane {
             };
         }
 
+    }
+    protected void addOpenedCell(){
+        this.cellsToOpen--;
+        System.out.println(cellsToOpen);
+        if(this.cellsToOpen == 0){
+            controller.endGame(true);
+        }
+    }
+    protected void addFlagged(){
+        this.unFlagged --;
+        controller.setNumBombs(this.unFlagged);
     }
 }
