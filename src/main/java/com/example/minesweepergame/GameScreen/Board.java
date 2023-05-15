@@ -1,9 +1,9 @@
 package com.example.minesweepergame.GameScreen;
-
 import com.example.minesweepergame.BombCreator;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -39,8 +39,20 @@ public class Board extends GridPane {
                 cellArray[i][j].open();
             }
         }
+        Delay(5000L);
         controller.endGame();
+        Delay(5000L);
     }
+
+    void Delay(Long ms){
+        Long dieTime = System.currentTimeMillis()+ms;
+        while(System.currentTimeMillis()<dieTime){}
+    }
+
+    public void showPane() {
+        JOptionPane.showMessageDialog(null, "output");
+    }
+
     protected void openNeighbors(int x, int y){
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {

@@ -1,12 +1,15 @@
 package com.example.minesweepergame.GameScreen;
 
 import com.example.minesweepergame.MainController;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.*;
-
-import java.io.IOException;
+import javax.swing.*;
 
 public class GameViewController {
+    Time time = new Time(new CurrentTime().currentTime());
+    Timeline timeline ;
+
     private Pane boardView;
     public double width;
     public double height;
@@ -25,6 +28,8 @@ public class GameViewController {
 
         Board board = new Board(this, diff);
         boardView.getChildren().add(board);
+        //System.out.println(((BorderPane)boardView.getChildren().get(0)).getLeft());
+        //timerText=(Text)((BorderPane)boardView.getChildren().get(0)).getLeft();
         this.width = Difficulty.getDiff(diff).get("columns") * 28.5 -1;
         this.height = Difficulty.getDiff(diff).get("rows") * 28.5 -1;
         this.controller = controller;
@@ -33,13 +38,17 @@ public class GameViewController {
     public Pane getBoardView() {
         return this.boardView;
     }
+
     protected void endGame(){
         // todo: njeheso piket
         try{
-            Thread.sleep(3000);
-            //controller.endGame();
+            Thread.sleep(0000);
+            controller.endGame(222, true);
         }
         catch (InterruptedException e){}
-        //controller.endGame(200, true);
+    }
+
+    public void showPane() {
+        JOptionPane.showMessageDialog(null, "output");
     }
 }
