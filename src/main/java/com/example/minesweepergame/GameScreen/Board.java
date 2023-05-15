@@ -48,7 +48,7 @@ public class Board extends GridPane {
     protected void openNeighbors(int x, int y){
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
-                if(i >= 0 && j >= 0 && i < cellArray.length && j < cellArray[0].length && (x == i ^ y == j))
+                if(i >= 0 && j >= 0 && i < cellArray.length && j < cellArray[0].length)
                     this.cellArray[i][j].open();
             };
         }
