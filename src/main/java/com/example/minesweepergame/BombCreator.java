@@ -55,7 +55,7 @@ public class BombCreator {
     public static void print(boolean[][] mat) {
         for (int i = 0; i < mat.length; i++){
             for (int j = 0; j < mat[i].length; j++)
-                System.out.print(mat[i][j] + " ");
+                System.out.print(mat[i][j] ? "o" : "-");
             System.out.println();
         }
     }
@@ -63,10 +63,32 @@ public class BombCreator {
     public boolean checkCell(int i, int j){
         return board[i][j];
     }
+    public int checkNeighbors(int i, int j){
+        int n = 0;
+
+        for (int k = -1; k <= 1; k++) {
+            if( i + k < 0 || i + k >= board.length)
+                continue;
+            for (int l = -1; l <= 1; l++) {
+                if(j + l < 0 || j + l >= board[0].length)
+                    continue;
+                if(checkCell(i + k, i + l) && i != 0 && j != 0)
+                    n++;
+            }
+        }
+
+        return n;
+    }
 
     public static void main(String[] args) {
         BombCreator b = new BombCreator(Difficulties.EASY);
         print(b.getBoard());
+        System.out.println(b.checkNeighbors(0,0));
+        System.out.println(b.checkNeighbors(3,3));
+        System.out.println(b.checkNeighbors(1,2));
+        System.out.println(b.checkNeighbors(7,8));
+        System.out.println(b.checkNeighbors(5,4));
+        System.out.println(b.checkNeighbors(7,9));
     }
 }
 
