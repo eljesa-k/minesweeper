@@ -17,5 +17,8 @@ public class Board extends GridPane {
                 this.add(new Cell(), j , i);
             }
         }
+
+        System.out.println(this.getChildren().getClass());
+
     }
 }
