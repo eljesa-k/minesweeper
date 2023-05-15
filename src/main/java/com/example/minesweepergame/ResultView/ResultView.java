@@ -20,8 +20,8 @@ public class ResultView {
     public void setPlayerName(String playerName) {
         this.playerName.setText(playerName);
     }
-    public void setPlayerScore(int playerScore){
-        this.playerScore.setText(String.valueOf(playerScore));
+    public void setPlayerScore(String time){
+        this.playerScore.setText(time);
     }
     public void setGameWon(boolean isWon){
         if (isWon) this.gameWon.setText("You Won!");

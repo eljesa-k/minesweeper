@@ -1,11 +1,14 @@
 package com.example.minesweepergame.GameScreen;
 
 import com.example.minesweepergame.BombCreator;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Board extends GridPane {
     private int rows;
@@ -16,6 +19,7 @@ public class Board extends GridPane {
     private Cell[][] cellArray;
     private int cellsToOpen;
     private int unFlagged;
+    private boolean gameIsLost;
 
     public Board(GameViewController controller, Difficulties diff){
         this.setHgap(1.5);
@@ -39,12 +43,24 @@ public class Board extends GridPane {
         this.controller.setNumBombs(difficultyDetails.get("nr_bombs"));
     }
     protected void endGame(){
+        this.gameIsLost = true;
         for (int i = 0; i < cellArray.length; i++) {
             for (int j = 0; j < cellArray[0].length; j++) {
                 cellArray[i][j].open();
             }
         }
-        controller.endGame(false);
+
+        controller.endTime();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    controller.endGame(false);
+                    timer.cancel();
+                });
+            }
+        }, 1500);
     }
     protected void openNeighbors(int x, int y){
         for (int i = x - 1; i <= x + 1; i++) {
@@ -57,7 +73,8 @@ public class Board extends GridPane {
     }
     protected void addOpenedCell(){
         this.cellsToOpen--;
-        if(this.cellsToOpen == 0){
+        if(this.cellsToOpen == 0 && !this.gameIsLost){
+            controller.endTime();
             controller.endGame(true);
         }
     }

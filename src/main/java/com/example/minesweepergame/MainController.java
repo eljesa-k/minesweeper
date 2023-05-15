@@ -44,8 +44,8 @@ public class MainController extends Application {
         stage.setResizable(false);
     }
 
-    public void endGame(int score, boolean isWin){
-        ResultViewController result = new ResultViewController(this, name, score, isWin);
+    public void endGame(String time, boolean isWin){
+        ResultViewController result = new ResultViewController(this, name, time, isWin);
         stage.setResizable(false);
         stage.setWidth(750);
         stage.setHeight(750);

@@ -9,19 +9,20 @@
 <?import javafx.scene.text.Text?>
 
 <VBox fx:id="gameScreen" alignment="CENTER"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500" minWidth="640" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+      fx:controller="com.example.minesweepergame.GameScreen.GameView"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500" minWidth="640" prefHeight="500.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets bottom="100.0" left="100.0" right="100.0" top="50.0" />
    </padding>
    <children>
       <BorderPane>
          <left>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" BorderPane.alignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" fx:id="timerText" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10" fx:id="numBombsText" />
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/bomb.png" />
