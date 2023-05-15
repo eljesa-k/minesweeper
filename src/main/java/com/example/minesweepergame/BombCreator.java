@@ -1,5 +1,8 @@
 package com.example.minesweepergame;
 import com.example.minesweepergame.GameScreen.Difficulties;
+import com.example.minesweepergame.GameScreen.Difficulty;
+
+import java.util.Map;
 import java.util.Random;
 
 public class BombCreator {
@@ -8,42 +11,58 @@ public class BombCreator {
     public static int[][] surroundingMines;
     public BombCreator(Difficulties difficulties){
         int placedMines = 0;
-        if(difficulties == Difficulties.EASY){
-            this.board = new boolean[8][10];
-            this.surroundingMines = new int[8][10];
-            while (placedMines < 10) {
-                int i = random.nextInt(8);
-                int j = random.nextInt(10);
-                if (!board[i][j]) {
-                    board[i][j] = true;
-                    placedMines++;
-                }
+
+        Map<String, Integer> difficultyDetails = Difficulty.getDiff(difficulties);
+        int rows = difficultyDetails.get("rows");
+        int columns = difficultyDetails.get("columns");
+        int numBombs = difficultyDetails.get("nr_bombs");
+        this.board = new boolean[rows][columns];
+        this.surroundingMines = new int[rows][columns];
+
+        while (placedMines < numBombs) {
+            int i = random.nextInt(rows);
+            int j = random.nextInt(columns);
+            if (!board[i][j]) {
+                board[i][j] = true;
+                placedMines++;
             }
         }
-        else if(difficulties == Difficulties.MEDIUM){
-            this.board = new boolean[14][18];
-            this.surroundingMines = new int[14][18];
-            while (placedMines < 15) {
-                int i = random.nextInt(14);
-                int j = random.nextInt(18);
-                if (!board[i][j]) {
-                    board[i][j] = true;
-                    placedMines++;
-                }
-            }
-        }
-        else {
-            this.board = new boolean[20][24];
-            this.surroundingMines = new int[20][24];
-            while (placedMines < 25) {
-                int i = random.nextInt(20);
-                int j = random.nextInt(24);
-                if (!board[i][j]) {
-                    board[i][j] = true;
-                    placedMines++;
-                }
-            }
-        }
+//        if(difficulties == Difficulties.EASY){
+//            this.board = new boolean[8][10];
+//            this.surroundingMines = new int[8][10];
+//            while (placedMines < 10) {
+//                int i = random.nextInt(8);
+//                int j = random.nextInt(10);
+//                if (!board[i][j]) {
+//                    board[i][j] = true;
+//                    placedMines++;
+//                }
+//            }
+//        }
+//        else if(difficulties == Difficulties.MEDIUM){
+//            this.board = new boolean[14][18];
+//            this.surroundingMines = new int[14][18];
+//            while (placedMines < 15) {
+//                int i = random.nextInt(14);
+//                int j = random.nextInt(18);
+//                if (!board[i][j]) {
+//                    board[i][j] = true;
+//                    placedMines++;
+//                }
+//            }
+//        }
+//        else {
+//            this.board = new boolean[20][24];
+//            this.surroundingMines = new int[20][24];
+//            while (placedMines < 25) {
+//                int i = random.nextInt(20);
+//                int j = random.nextInt(24);
+//                if (!board[i][j]) {
+//                    board[i][j] = true;
+//                    placedMines++;
+//                }
+//            }
+//        }
     }
 
     public boolean[][] getBoard() {
@@ -71,21 +90,18 @@ public class BombCreator {
     }
 
     //metoda e elit qe metem me kqyr
-    public int checkNeighbors(int i, int j){
-        int n = 0;
-
-        for (int k = -1; k <= 1; k++) {
-            if( i + k < 0 || i + k >= board.length)
-                continue;
-            for (int l = -1; l <= 1; l++) {
-                if(j + l < 0 || j + l >= board[0].length)
-                    continue;
-                if(checkCell(i + k, i + l) && i != 0 && j != 0)
-                    n++;
+    public int checkNeighbors(int row, int col){
+        int count = 0;
+        for (int i = row - 1; i <= row + 1; i++) {
+            for (int j = col - 1; j <= col + 1; j++) {
+                if(i >= 0 && i < board.length && j >= 0 && j < board[0].length){
+                    if((board[i][j])) {
+                        count++;
+                    }
+                }
             }
         }
-
-        return n;
+        return count;
     }
 
     public static void locateBombs(){
