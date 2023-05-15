@@ -21,7 +21,7 @@ public class Board extends GridPane {
         Map<String, Integer> difficultyDetails = Difficulty.getDiff(diff);
         this.rows = difficultyDetails.get("rows");
         this.columns = difficultyDetails.get("columns");
-        this.bombCreator = new BombCreator(Difficulties.EASY);
+        this.bombCreator = new BombCreator(diff);
         cellArray = new Cell[rows][columns];
         for(int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
@@ -34,15 +34,14 @@ public class Board extends GridPane {
         System.out.println(cellArray);
     }
     protected void endGame(){
-        // todo: shfaqi krejt bombat
         for (int i = 0; i < cellArray.length; i++) {
             for (int j = 0; j < cellArray[0].length; j++) {
                 cellArray[i][j].open();
             }
         }
         try{
-            Thread.sleep(1500);
-            //controller.endGame();
+            Thread.sleep(0000);
+            controller.endGame();
         }
         catch (InterruptedException e){}
     }

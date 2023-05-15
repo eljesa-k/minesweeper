@@ -35,6 +35,11 @@ public class GameViewController {
     }
     protected void endGame(){
         // todo: njeheso piket
-        controller.endGame(200, true);
+        try{
+            Thread.sleep(3000);
+            //controller.endGame();
+        }
+        catch (InterruptedException e){}
+        //controller.endGame(200, true);
     }
 }
