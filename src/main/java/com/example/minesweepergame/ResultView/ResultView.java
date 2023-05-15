@@ -24,5 +24,6 @@ public class ResultView {
         if (isWon)
             this.gameWon.setText("You Won!");
         else this.gameWon.setText("You Lost!");
+        //System.out.println(gameWon.toString());
     }
 }
