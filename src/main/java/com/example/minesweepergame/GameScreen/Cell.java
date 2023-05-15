@@ -15,7 +15,9 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
     private int neighborBombs = 3;
     private boolean isOpen;
     private boolean isFlagged;
-    public Cell(){
+    private Board board;
+    public Cell(Board board){
+        this.board = board;
         this.setStyle(IDLE_BUTTON_STYLE);
         //this.getStyleClass().add(".cell");
         this.addEventHandler(MouseEvent.MOUSE_CLICKED, this);
@@ -35,6 +37,7 @@ public class Cell extends Button implements  EventHandler<MouseEvent>{
             if(isBomb){
                 this.setStyle("-fx-background-color: #FF2519FF;");
                 this.setBackgroundImage("bomb");
+                board.endGame();
             }else{
                 this.setStyle("-fx-background-color: #eef0f2;");
                 this.setText(neighborBombs > 0 ? neighborBombs + "" : " ");

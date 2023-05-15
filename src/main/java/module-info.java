@@ -9,4 +9,6 @@ module com.example.minesweepergame {
     opens com.example.minesweepergame.GameScreen to javafx.fxml;
     exports com.example.minesweepergame.controller;
     opens com.example.minesweepergame.controller to javafx.fxml;
+    exports com.example.minesweepergame.ResultView;
+    opens com.example.minesweepergame.ResultView to javafx.fxml;
 }

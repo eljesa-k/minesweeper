@@ -10,8 +10,9 @@ public class GameViewController {
     private Pane boardView;
     public double width;
     public double height;
+    private MainController controller;
 
-    public GameViewController(Difficulties diff){
+    public GameViewController(Difficulties diff, MainController controller){
         FXMLLoader fxmlLoader =
                 new FXMLLoader(MainController.class.getResource("game-screen/game-screen.fxml"));
         try{
@@ -46,13 +47,18 @@ public class GameViewController {
             }
 
         }
-        Board board = new Board(rows, cols);
+        Board board = new Board(rows, cols, this);
         boardView.getChildren().add(board);
         this.width = cols * 28.5 -1;
         this.height = rows * 28.5 -1;
+        this.controller = controller;
     }
 
     public Pane getBoardView() {
         return this.boardView;
+    }
+    protected void endGame(){
+        // todo: njeheso piket
+        controller.endGame(200, true);
     }
 }
