@@ -7,9 +7,9 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #eef0f2; -fx-border-radius: 2px; -fx-background-radius: 2px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.minesweepergame.ResultView.ResultView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: #eef0f2; -fx-border-radius: 2px; -fx-background-radius: 2px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.minesweepergame.ResultView.ResultView">
    <children>
-      <Button id="newGame" fx:id="newGame" layoutX="110.0" layoutY="289.0" mnemonicParsing="false" onAction="#newGame" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="New Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+      <Button id="newGame" fx:id="newGame" layoutX="252.0" layoutY="375.0" mnemonicParsing="false" onAction="#newGame" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="New Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
@@ -44,7 +44,7 @@
             </LinearGradient>
          </stroke>
       </Text>
-      <Pane layoutX="112.0" layoutY="89.0" prefHeight="175.0" prefWidth="398.0" style="-fx-border-color: #14a2fa; -fx-border-radius: 5px;">
+      <Pane layoutX="203.0" layoutY="150.0" prefHeight="175.0" prefWidth="398.0" style="-fx-border-color: #14a2fa; -fx-border-radius: 5px;">
          <children>
             <TextField fx:id="playerName" alignment="CENTER" layoutX="52.0" layoutY="88.0" prefHeight="30.0" prefWidth="107.0" promptText="Player" style="-fx-background-color: #D1E9F9; -fx-text-fill: #eef0f2; -fx-border-color: #4fbcff; -fx-border-style: solid; -fx-text-fill: #5d4037; -fx-border-width: 1px; -fx-border-radius: 2px;" text="Rinesa">
                <font>
@@ -56,7 +56,7 @@
                   <Font name="Book Antiqua" size="16.0" />
                </font>
             </TextField>
-            <Text fx:id="gameWon" layoutX="119.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Won !" wrappingWidth="134.20001220703125">
+            <Text fx:id="gameWon" layoutX="139.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Won !" wrappingWidth="134.20001220703125">
                <font>
                   <Font name="Book Antiqua" size="27.0" />
                </font>
@@ -64,7 +64,7 @@
 
          </children>
       </Pane>
-      <Button id="topScore" layoutX="261.0" layoutY="289.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="Top Score" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+      <Button id="topScore" layoutX="352.0" layoutY="383.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="Top Score" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP" visible="false">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
@@ -78,8 +78,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button id="quitGame" layoutX="410.0" layoutY="289.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="40.0" prefWidth="122.0"
-              style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="Quit Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
+      <Button id="quitGame" layoutX="440.0" layoutY="375.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #4fbcff; -fx-background-radius: 5px; -fx-border-radius: 5px 2px; -fx-max-width: 100; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 2, 0.0 , 0 , 1 );" text="Quit Game" textAlignment="RIGHT" textFill="#eef0f2" textOverrun="CLIP">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
