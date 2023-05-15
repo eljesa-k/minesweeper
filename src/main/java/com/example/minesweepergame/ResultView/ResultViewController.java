@@ -20,6 +20,7 @@ public class ResultViewController {
         resultView.setPlayerName(playerName);
         resultView.setPlayerScore(score);
         resultView.setGameWon(isWin);
+        resultView.setController(controller);
         this.resultView = fxmlLoader.getRoot();
     }
     public Pane getResultView(){

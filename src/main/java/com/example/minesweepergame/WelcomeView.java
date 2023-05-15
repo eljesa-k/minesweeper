@@ -30,21 +30,18 @@ public class WelcomeView {
 
     public void startGameEasyAction(ActionEvent event) {
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("easy");
-        controller.startGame(name, Difficulties.EASY);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.EASY);
     }
     public void startGameMediumAction(ActionEvent event){
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("medium");
-        controller.startGame(name, Difficulties.MEDIUM);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.MEDIUM);
     }
     public void startGameHardAction(ActionEvent event){
         name = typeNameField.getText();
-        System.out.println(name);
-        System.out.println("hard");
-        controller.startGame(name, Difficulties.HARD);
+        if(name != null && !name.equals(""))
+            controller.startGame(name, Difficulties.HARD);
     }
 
     public Pane getWelcomeView(){

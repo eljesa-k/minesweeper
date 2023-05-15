@@ -56,7 +56,6 @@ public class Board extends GridPane {
     }
     protected void addOpenedCell(){
         this.cellsToOpen--;
-        System.out.println(cellsToOpen);
         if(this.cellsToOpen == 0){
             controller.endGame(true);
         }

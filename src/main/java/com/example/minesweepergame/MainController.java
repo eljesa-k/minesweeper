@@ -16,11 +16,11 @@ public class MainController extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        WelcomeViewController welcome = new WelcomeViewController(this);
-        stage.setScene(new Scene(welcome.getWelcomeView()));
-        stage.setTitle("Minesweeper");
-        stage.show();
         this.stage = stage;
+        stage.setTitle("Minesweeper");
+
+        this.newGame();
+        stage.show();
        //this.endGame(200, true);
     }
 
@@ -28,10 +28,14 @@ public class MainController extends Application {
         launch();
     }
 
+    public void newGame(){
+        WelcomeViewController welcome = new WelcomeViewController(this);
+        stage.setScene(new Scene(welcome.getWelcomeView()));
+    }
     public void startGame(String name, Difficulties difficulty){
         GameViewController game = new GameViewController(difficulty, this);
         this.name=name;
-        stage.setScene(new Scene(game.getBoardView(), game.width +200, game.height+150));
+        stage.setScene(new Scene(game.getBoardView(), game.width < 440 ? 640 : game.width + 200 , game.height < 350 ? 500 : game.height + 150));
         stage.setResizable(false);
     }
 
@@ -40,4 +44,10 @@ public class MainController extends Application {
         stage.setResizable(true);
         stage.setScene(new Scene(result.getResultView()));
     }
+
+    public void quitGame(){
+        // save results
+        System.exit(1);
+    }
+
 }
