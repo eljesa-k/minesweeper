@@ -12,7 +12,7 @@ public class GameViewController {
     public double width;
     public double height;
     private MainController controller;
-    private Text numBombsLabel;
+    private GameView gameView;
 
     public GameViewController(Difficulties diff, MainController controller){
         this.controller = controller;
@@ -26,7 +26,7 @@ public class GameViewController {
         }
 
         boardView = fxmlLoader.getRoot();
-        this.numBombsLabel = (Text) ((HBox)((BorderPane)boardView.getChildren().get(0)).getRight()).getChildren().get(0);
+        gameView = fxmlLoader.getController();
 
         Board board = new Board(this, diff);
         boardView.getChildren().add(board);
@@ -38,11 +38,13 @@ public class GameViewController {
         return this.boardView;
     }
     protected void endGame(boolean isWin){
-        // todo: njeheso piket
-        controller.endGame(200, isWin);
+        controller.endGame(gameView.getTime(), isWin);
     }
     protected void setNumBombs(int leftBombs){
         if(leftBombs >= 0)
-            this.numBombsLabel.setText(leftBombs + "");
+            this.gameView.setNumBombsText(leftBombs);
+    }
+    protected void endTime(){
+        gameView.endTime();
     }
 }

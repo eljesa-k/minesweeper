@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 public class ResultViewController {
     private Pane resultView;
 
-    public ResultViewController(MainController controller, String playerName, int score, boolean isWin){
+    public ResultViewController(MainController controller, String playerName, String time, boolean isWin){
         FXMLLoader fxmlLoader =
                 new FXMLLoader(MainController.class.getResource("game-result-view.fxml"));
         try{
@@ -18,7 +18,7 @@ public class ResultViewController {
         }
         ResultView resultView = fxmlLoader.getController();
         resultView.setPlayerName(playerName);
-        resultView.setPlayerScore(score);
+        resultView.setPlayerScore(time);
         resultView.setGameWon(isWin);
         resultView.setController(controller);
         this.resultView = fxmlLoader.getRoot();

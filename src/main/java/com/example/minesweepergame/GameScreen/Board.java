@@ -50,6 +50,7 @@ public class Board extends GridPane {
             }
         }
 
+        controller.endTime();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -73,6 +74,7 @@ public class Board extends GridPane {
     protected void addOpenedCell(){
         this.cellsToOpen--;
         if(this.cellsToOpen == 0 && !this.gameIsLost){
+            controller.endTime();
             controller.endGame(true);
         }
     }
