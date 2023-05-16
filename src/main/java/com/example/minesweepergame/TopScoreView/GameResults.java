@@ -6,11 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class GameResults {
     private final String FILENAME = "gameResults.csv";
@@ -22,7 +18,9 @@ public class GameResults {
     }
 
     public Map<String, Integer> getPlayerResults() {
-        return playerResults;
+        Map<String, Integer> sortedMap = new TreeMap<>(Comparator.comparingInt(playerResults::get).reversed());
+        sortedMap.putAll(playerResults);
+        return sortedMap;
     }
 
     public void addPlayer(String playerName, int score) {
@@ -70,12 +68,7 @@ public class GameResults {
         }
     }
     public int getPlayerRank(String playerName) {
-        Map<String, Integer> sortedResults = playerResults
-                .entrySet()
-                .stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, HashMap::new));
+        Map<String, Integer> sortedResults = getPlayerResults();
 
         int rank = 1;
         for (Map.Entry<String, Integer> entry : sortedResults.entrySet()) {
